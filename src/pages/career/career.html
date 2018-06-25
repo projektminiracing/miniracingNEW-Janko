@@ -1,0 +1,131 @@
+<!--
+  Generated template for the CareerPage page.
+
+  See http://ionicframework.com/docs/components/#navigation for more info on
+  Ionic pages and navigation.
+-->
+<ion-header>
+
+  <ion-navbar>
+    <ion-title>My career</ion-title>
+    <ion-buttons end>
+      <button (click)="alert()" ion-button icon-end large>
+        {{upgradesLeft}}
+        <ion-icon name="add-circle"></ion-icon>
+      </button>
+    </ion-buttons>
+  </ion-navbar>
+
+</ion-header>
+
+<ion-content padding>
+  <h3>My vehicle</h3>
+  <ion-list>
+    <ion-item>Manufacturer: {{vehicle?.manufacturer}}</ion-item>
+    <ion-item>Color: {{vehicle?.color}}</ion-item>
+    <ion-item>Weight: {{vehicle?.weight}}</ion-item>
+    <ion-item>Drive wheel: {{vehicle?.driveWheel}}</ion-item>
+    <ion-item>Battery left: {{vehicle?.batteryLeft}}</ion-item>
+    <ion-item>Charge time: {{vehicle?.chargeTime}}
+      <button (click)="upgrade('vehicle', 'chargeTime', -0.25)" ion-button icon-only>
+        <ion-icon name="add"></ion-icon>
+      </button>
+    </ion-item>
+    <ion-item>Acceleration: {{vehicle?.acceleration}}
+      <button (click)="upgrade('vehicle', 'acceleration', 0.2)" ion-button icon-only>
+        <ion-icon name="add"></ion-icon>
+      </button>
+    </ion-item>
+    <ion-item>Top speed: {{vehicle?.topSpeed}}
+      <button (click)="upgrade('vehicle', 'topSpeed', 5)" ion-button icon-only>
+        <ion-icon name="add"></ion-icon>
+      </button>
+    </ion-item>
+    <ion-item>Horsepower: {{vehicle?.engine?.horsePower}}
+      <button (click)="upgrade('vehicle', 'engineHS', 5)" ion-button icon-only>
+        <ion-icon name="add"></ion-icon>
+      </button>
+    </ion-item>
+    <ion-item>Battery consumption: {{vehicle?.engine?.batteryConsumption}}
+      <button (click)="upgrade('vehicle', 'engineBC', -0.2)" ion-button icon-only>
+        <ion-icon name="add"></ion-icon>
+      </button>
+    </ion-item>
+  </ion-list>
+  
+  <h3>My driver</h3>
+  <ion-list>
+    <ion-item>Name: {{driver?.name}}</ion-item>
+    <ion-item>Age: {{driver?.age}}</ion-item>
+    <ion-item>Sex: {{driver?.sex}}</ion-item>
+    <ion-item>Rank: {{driver?.rank}}</ion-item>
+    <ion-item>Number of wins: {{driver?.number_of_wins}}</ion-item>
+    <ion-item>Speed: {{driver?.speed}}
+      <button (click)="upgrade('driver', 'speed', 1)" ion-button icon-only>
+        <ion-icon *ngIf="!isRecommended('speed')" name="warning"></ion-icon>
+        <ion-icon *ngIf="isRecommended('speed')" name="add"></ion-icon>
+      </button>
+    </ion-item>
+    <ion-item>Overtaking: {{driver?.overtaking}}
+      <button (click)="upgrade('driver', 'overtaking', 1)" ion-button icon-only>
+        <ion-icon *ngIf="!isRecommended('overtaking')" name="warning"></ion-icon>
+        <ion-icon *ngIf="isRecommended('overtaking')" name="add"></ion-icon>
+      </button>
+    </ion-item>
+    <ion-item>Blocking: {{driver?.blocking}}
+      <button (click)="upgrade('driver', 'blocking', 1)" ion-button icon-only>
+        <ion-icon *ngIf="!isRecommended('blocking')" name="warning"></ion-icon>
+        <ion-icon *ngIf="isRecommended('blocking')" name="add"></ion-icon>
+      </button>
+    </ion-item>
+    <ion-item>Bad weather: {{driver?.bad_weather}}
+      <button (click)="upgrade('driver', 'bad_weather', 1)" ion-button icon-only>
+        <ion-icon *ngIf="!isRecommended('bad_weather')" name="warning"></ion-icon>
+        <ion-icon *ngIf="isRecommended('bad_weather')" name="add"></ion-icon>
+      </button>
+    </ion-item>
+    <ion-item>Reaction time: {{driver?.reaction_time}}
+      <button (click)="upgrade('driver', 'reaction_time', 1)" ion-button icon-only>
+        <ion-icon *ngIf="!isRecommended('speed')" name="warning"></ion-icon>
+        <ion-icon *ngIf="isRecommended('speed')" name="add"></ion-icon>
+      </button>
+    </ion-item>
+    <ion-item>Patience: {{driver?.patience}}
+      <button (click)="upgrade('driver', 'patience', 1)" ion-button icon-only>
+        <ion-icon *ngIf="!isRecommended('patience')" name="warning"></ion-icon>
+        <ion-icon *ngIf="isRecommended('patience')" name="add"></ion-icon>
+      </button>
+    </ion-item>
+    <ion-item>Aggresiveness: {{driver?.aggresiveness}}
+      <button (click)="upgrade('driver', 'aggresiveness', 1)" ion-button icon-only>
+        <ion-icon *ngIf="!isRecommended('aggresiveness')" name="warning"></ion-icon>
+        <ion-icon *ngIf="isRecommended('aggresiveness')" name="add"></ion-icon>
+      </button>
+    </ion-item>
+    <ion-item>Will: {{driver?.will}}
+      <button (click)="upgrade('driver', 'will', 1)" ion-button icon-only>
+        <ion-icon *ngIf="!isRecommended('will')" name="warning"></ion-icon>
+        <ion-icon *ngIf="isRecommended('will')" name="add"></ion-icon>
+      </button>
+    </ion-item>
+    <ion-item>Intelligence: {{driver?.intelligence}}
+      <button (click)="upgrade('driver', 'intelligence', 1)" ion-button icon-only>
+        <ion-icon *ngIf="!isRecommended('intelligence')" name="warning"></ion-icon>
+        <ion-icon *ngIf="isRecommended('intelligence')" name="add"></ion-icon>
+      </button>
+    </ion-item>
+    <ion-item>Fitness: {{driver?.fitness}}
+      <button (click)="upgrade('driver', 'fitness', 1)" ion-button icon-only>
+        <ion-icon *ngIf="!isRecommended('fitness')" name="warning"></ion-icon>
+        <ion-icon *ngIf="isRecommended('fitness')" name="add"></ion-icon>
+      </button>
+    </ion-item>
+    <ion-item>Injuries: {{driver?.injuries}}
+      <button (click)="upgrade('driver', 'injuries', 1)" ion-button icon-only>
+        <ion-icon *ngIf="!isRecommended('injuries')" name="warning"></ion-icon>
+        <ion-icon *ngIf="isRecommended('injuries')" name="add"></ion-icon>
+      </button>
+    </ion-item>
+    <ion-item>Overall: {{driver?.overall}}</ion-item>
+  </ion-list>
+</ion-content>
